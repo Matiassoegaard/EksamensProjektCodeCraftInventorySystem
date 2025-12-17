@@ -39,8 +39,9 @@
     </center>
     <bottom>
         <HBox spacing="10" style="-fx-padding: 15; -fx-background-color: #ecf0f1;">
-            <Button fx:id="removeButton" onAction="#removeItem" prefWidth="150.0" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" text="Remove Selected Item" />
-            <Button fx:id="addButton" onAction="#showAddItemMenu" prefWidth="150" style="-fx-background-color: #00FF12; -fx-text-fill: white;" text="Add item" />
+            <Button fx:id="removeButton" onAction="#removeItem" prefWidth="150" style="-fx-background-color: #e74c3c; -fx-text-fill: white;" text="Remove Selected Item" />
+            <Button fx:id="addButton" onAction="#showAddItemMenu" prefWidth="100" style="-fx-background-color: #00FF12; -fx-text-fill: white;" text="Add item" />
+            <Button fx:id="levelUp" onAction="#handleLevelUp" prefWidth="100" style="-fx-background-color: #BB00FF; -fx-text-fill: white;" text="Level Up"/>
             <Button fx:id="sortByNameButton" onAction="#sortItemByName" prefWidth="100" style="-fx-padding: 5; -fx-background-color: #2AC1C7;
                                                                                      -fx-text-fill: white" text="Sort by Name" />
             <Button fx:id="sortByTypeButton" onAction="#sortItemByType" prefWidth="100" style="-fx-padding: 5; -fx-background-color: #2AC1C7;

@@ -73,6 +73,8 @@ public class InventoryController {
     private Button sortByTypeButton;
     @FXML
     private Button sortByWeightButton;
+    @FXML
+    private Button levelUp;
 
     @FXML
     private void showAddItemMenu() {
@@ -209,7 +211,7 @@ public class InventoryController {
     }
 
     @FXML
-    private void HandlelevelUp(){
+    private void handleLevelUp(){
         if(inventory != null){
             inventory.getPlayer().levelUp();
             refreshDisplay();
