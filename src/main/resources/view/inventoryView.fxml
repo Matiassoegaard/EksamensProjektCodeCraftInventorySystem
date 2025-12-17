@@ -47,7 +47,7 @@
             <Button fx:id="sortByTypeButton" onAction="#sortItemByType" prefWidth="100" style="-fx-padding: 5; -fx-background-color: #2AC1C7;
                                                                                      -fx-text-fill: white" text="Sort by Type" />
             <Button fx:id="sortByWeightButton" onAction="#sortItemByWeight" prefWidth="100" style="-fx-padding: 5; -fx-background-color: #2AC1C7;
-                                                                                     -fx-text-fill: white" text="Sort by Weight" />
+                                                                                    -fx-text-fill: white" text="Sort by Weight" />
             <Pane HBox.hgrow="ALWAYS" />
             <Button fx:id="saveButton" onAction="#saveInventory" prefWidth="50" style="-fx-background-color: #276CF5; -fx-text-fill: white;" text="Save" />
             <Button fx:id="loadButton" onAction="#loadInventory" prefWidth="50" style="-fx-background-color: #276CF5; -fx-text-fill: white;" text="Load" />

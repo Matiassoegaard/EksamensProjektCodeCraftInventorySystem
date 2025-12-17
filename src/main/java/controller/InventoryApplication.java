@@ -37,17 +37,17 @@ public class InventoryApplication extends Application {
     }
     private void addTestItems(Inventory inventory) {
         try {
-            // Add weapons with different rarities
+            // Add default weapons
             inventory.addWeapon(WeaponType.SWORD, ItemRarity.RARE);
             inventory.addWeapon(WeaponType.BOW, ItemRarity.COMMON);
             inventory.addWeapon(WeaponType.DAGGER, ItemRarity.EPIC);
 
-            // Add armor
+            // Add default armor
             inventory.addArmor(ArmorType.HELMET, ItemRarity.COMMON);
             inventory.addArmor(ArmorType.CHESTPLATE, ItemRarity.RARE);
             inventory.addArmor(ArmorType.BOOTS, ItemRarity.COMMON);
 
-            // Add consumables
+            // Add default consumables
             inventory.addConsumable(ConsumableType.BEER, 5, ItemRarity.COMMON);
             inventory.addConsumable(ConsumableType.DRIED_MEAT, 10, ItemRarity.COMMON);
             inventory.addConsumable(ConsumableType.HEALTH_POTION, 3, ItemRarity.COMMON);

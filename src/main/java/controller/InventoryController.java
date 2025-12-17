@@ -23,9 +23,6 @@ import java.awt.event.ActionEvent;
 
 public class InventoryController {
     @FXML
-    private Label welcomeText;
-
-    @FXML
     private TableView<ItemTableData> itemTable;
 
     @FXML
