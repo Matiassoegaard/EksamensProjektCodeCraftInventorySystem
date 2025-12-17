@@ -43,16 +43,16 @@ public class Inventory {
     }
 
     // method where the default rarity is set to COMMON
-    public void addConsumable(ConsumableType type, String name, int quantity)
+    public void addConsumable(ConsumableType type, int quantity)
             throws InventoryFullException, WeightLimitException {
-        Consumable consumable = new Consumable(type, name, quantity);
+        Consumable consumable = new Consumable(type, quantity);
         addItem(consumable);
     }
 
     // overloaded version where rarity is chosen
-    public void addConsumable(ConsumableType type, String name, int quantity, ItemRarity rarity)
+    public void addConsumable(ConsumableType type, int quantity, ItemRarity rarity)
             throws InventoryFullException, WeightLimitException {
-        Consumable consumable = new Consumable(type, name, quantity, rarity);
+        Consumable consumable = new Consumable(type, quantity, rarity);
         addItem(consumable);
     }
 
@@ -63,8 +63,7 @@ public class Inventory {
             for (Item existing : items) {
                 if (existing instanceof Consumable) {
                     Consumable existingCons = (Consumable) existing;
-                    if (existingCons.getItemName().equals(newCons.getItemName()) &&
-                            existingCons.getConsumableType() == newCons.getConsumableType()) {
+                    if (existingCons.getConsumableType() == newCons.getConsumableType()) {
                         // Check weight before stacking
                         if (getCurrentWeight() + item.getWeight() > MAX_WEIGHT) {
                             throw new WeightLimitException("Cant add this many!, they're to heavy!");

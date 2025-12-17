@@ -6,14 +6,14 @@ public class Consumable extends Item {
     private int quantity;
     private static final double DEFAULT_WEIGHT_PER_UNIT = 0.2;
 
-    public Consumable(ConsumableType consumableType, String name, int quantity) {
-        super(name, DEFAULT_WEIGHT_PER_UNIT);
+    public Consumable(ConsumableType consumableType, int quantity) {
+        super(consumableType.toString(), DEFAULT_WEIGHT_PER_UNIT);
         this.consumableType = consumableType;
         this.quantity = quantity;
     }
 
-    public Consumable(ConsumableType consumableType, String name, int quantity, ItemRarity itemRarity) {
-        super(name, DEFAULT_WEIGHT_PER_UNIT, itemRarity);
+    public Consumable(ConsumableType consumableType, int quantity, ItemRarity itemRarity) {
+        super(consumableType.toString(), DEFAULT_WEIGHT_PER_UNIT, itemRarity);
         this.consumableType = consumableType;
         this.quantity = quantity;
     }

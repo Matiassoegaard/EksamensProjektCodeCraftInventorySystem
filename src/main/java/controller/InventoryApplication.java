@@ -48,9 +48,9 @@ public class InventoryApplication extends Application {
             inventory.addArmor(ArmorType.BOOTS, ItemRarity.COMMON);
 
             // Add consumables
-            inventory.addConsumable(ConsumableType.POTION, "Health Potion", 5, ItemRarity.COMMON);
-            inventory.addConsumable(ConsumableType.FOOD, "Bread", 10, ItemRarity.COMMON);
-            inventory.addConsumable(ConsumableType.POTION, "Mana Potion", 3, ItemRarity.COMMON);
+            inventory.addConsumable(ConsumableType.BEER, 5, ItemRarity.COMMON);
+            inventory.addConsumable(ConsumableType.DRIED_MEAT, 10, ItemRarity.COMMON);
+            inventory.addConsumable(ConsumableType.HEALTH_POTION, 3, ItemRarity.COMMON);
 
         } catch (InventoryFullException | WeightLimitException e) {
             System.err.println("Error adding test items: " + e.getMessage());
