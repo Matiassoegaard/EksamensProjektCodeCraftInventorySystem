@@ -63,6 +63,13 @@ public class InventoryController {
     @FXML
     private Button loadButton;
 
+    @FXML
+    private Button sortByNameButton;
+    @FXML
+    private Button sortByTypeButton;
+    @FXML
+    private Button sortByWeightButton;
+
 
     @FXML
     public void initialize() {
@@ -130,6 +137,23 @@ public class InventoryController {
             inventory.getPlayer().levelUp();
             refreshDisplay();
         }
+    }
+    @FXML
+    private void sortItemByName(){
+        inventory.sortByName(inventory.getItems());
+        refreshDisplay();
+    }
+
+    @FXML
+    private void sortItemByType(){
+        inventory.sortByType(inventory.getItems());
+        refreshDisplay();
+    }
+
+    @FXML
+    private void sortItemByWeight(){
+        inventory.sortByWeight(inventory.getItems());
+        refreshDisplay();
     }
 
     public static class ItemTableData{

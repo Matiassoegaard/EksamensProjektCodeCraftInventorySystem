@@ -104,6 +104,45 @@ public class Inventory {
         items.remove(index);
     }
 
+    // bubble-sort where it sorts items by name
+    public void sortByName(List<Item> items) {
+        for(int i = 0; i < items.size()- 1; i++) {
+            for( int j = 0; j < items.size() - i - 1; j++) {
+                if(items.get(j).getItemName().compareTo(items.get(j + 1).getItemName()) > 0){
+                    Item temp = items.get(j);
+                    items.set(j, items.get(j + 1));
+                    items.set(j + 1, temp);
+                }
+            }
+        }
+    }
+
+    // bubble-sort where it sorts items by weight
+    public void sortByWeight(List<Item> items) {
+        for (int i = 0; i < items.size() - 1; i++) {
+            for (int j = 0; j < items.size() - i - 1; j++) {
+                if (items.get(j).getWeight() < items.get(j + 1).getWeight()) {
+                    Item temp = items.get(j);
+                    items.set(j, items.get(j + 1));
+                    items.set(j + 1, temp);
+                }
+            }
+        }
+    }
+
+    // bubble-sort where it sorts items by type
+    public void sortByType(List<Item> items) {
+        for (int i = 0; i < items.size() - 1; i++) {
+            for (int j = 0; j < items.size() - i - 1; j++) {
+                if (items.get(j).getType().compareTo(items.get(j + 1).getType()) > 0) {
+                    Item temp = items.get(j);
+                    items.set(j, items.get(j + 1));
+                    items.set(j + 1, temp);
+                }
+            }
+        }
+    }
+
     public int getUsedSlots() {
         return items.size();
     }
