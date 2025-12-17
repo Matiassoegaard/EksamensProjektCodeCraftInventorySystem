@@ -130,7 +130,7 @@ public class InventoryController {
             ItemRarity[] rarities = ItemRarity.values();
             ItemRarity randomRarity = rarities[(int)(Math.random() * rarities.length)];
 
-            String[] names = {"Health Potion", "Mana Potion", "Stamina Potion", "Bread", "Cheese", "Apple"};
+            String[] names = {"Health Potion", "Mana Potion", "Stamina Potion", "Bread"};
             String randomName = names[(int)(Math.random() * names.length)];
 
             int quantity = (int)(Math.random() * 5) + 1; // 1-5 items
