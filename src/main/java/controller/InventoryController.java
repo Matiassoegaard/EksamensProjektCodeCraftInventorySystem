@@ -133,7 +133,7 @@ public class InventoryController {
             String[] names = {"Health Potion", "Mana Potion", "Stamina Potion", "Bread"};
             String randomName = names[(int)(Math.random() * names.length)];
 
-            int quantity = (int)(Math.random() * 5) + 1; // 1-5 items
+            int quantity = (int)(Math.random() * 5) + 1;
 
             inventory.addConsumable(randomType, randomName, quantity, randomRarity);
             refreshDisplay();
