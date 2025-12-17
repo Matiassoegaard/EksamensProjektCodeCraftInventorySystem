@@ -1,6 +1,8 @@
 package controller;
 
 import exception.InvalidItemException;
+import exception.InventoryFullException;
+import exception.WeightLimitException;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,8 +13,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.collections.ObservableList;
 import logik.FileManager;
 import logik.Inventory;
-import model.Consumable;
-import model.Item;
+import model.*;
+
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -70,6 +74,79 @@ public class InventoryController {
     @FXML
     private Button sortByWeightButton;
 
+    @FXML
+    private void showAddItemMenu() {
+        ContextMenu contextMenu = new ContextMenu();
+
+        MenuItem weaponItem = new MenuItem("Add Weapon");
+        MenuItem armorItem = new MenuItem("Add Armor");
+        MenuItem consumableItem = new MenuItem("Add Consumable");
+
+        weaponItem.setOnAction(e -> addRandomWeapon());
+        armorItem.setOnAction(e -> addRandomArmor());
+        consumableItem.setOnAction(e -> addRandomConsumable());
+
+        contextMenu.getItems().addAll(weaponItem, armorItem, consumableItem);
+        contextMenu.show(addButton, javafx.geometry.Side.BOTTOM, 0, 0);
+    }
+
+    private void addRandomWeapon() {
+        try {
+            WeaponType[] types = WeaponType.values();
+            WeaponType randomType = types[(int)(Math.random() * types.length)];
+
+            ItemRarity[] rarities = ItemRarity.values();
+            ItemRarity randomRarity = rarities[(int)(Math.random() * rarities.length)];
+
+            inventory.addWeapon(randomType, randomRarity);
+            refreshDisplay();
+        } catch (InventoryFullException | WeightLimitException e) {
+            showError(e.getMessage());
+        }
+    }
+
+    private void addRandomArmor() {
+        try {
+            ArmorType[] types = ArmorType.values();
+            ArmorType randomType = types[(int)(Math.random() * types.length)];
+
+            ItemRarity[] rarities = ItemRarity.values();
+            ItemRarity randomRarity = rarities[(int)(Math.random() * rarities.length)];
+
+            inventory.addArmor(randomType, randomRarity);
+            refreshDisplay();
+        } catch (InventoryFullException | WeightLimitException e) {
+            showError(e.getMessage());
+        }
+    }
+
+    private void addRandomConsumable() {
+        try {
+            ConsumableType[] types = ConsumableType.values();
+            ConsumableType randomType = types[(int)(Math.random() * types.length)];
+
+            ItemRarity[] rarities = ItemRarity.values();
+            ItemRarity randomRarity = rarities[(int)(Math.random() * rarities.length)];
+
+            String[] names = {"Health Potion", "Mana Potion", "Stamina Potion", "Bread", "Cheese", "Apple"};
+            String randomName = names[(int)(Math.random() * names.length)];
+
+            int quantity = (int)(Math.random() * 5) + 1; // 1-5 items
+
+            inventory.addConsumable(randomType, randomName, quantity, randomRarity);
+            refreshDisplay();
+        } catch (InventoryFullException | WeightLimitException e) {
+            showError(e.getMessage());
+        }
+    }
+
+    private void showError(String message) {
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("Cannot add item");
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 
     @FXML
     public void initialize() {
