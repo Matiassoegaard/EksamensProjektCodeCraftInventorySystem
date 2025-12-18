@@ -10,7 +10,7 @@ public class Weapon extends Item {
         this.weaponType = weaponType;
     }
 
-    //Construktor without a preset rarity.
+    //Constructor without a preset rarity.
     public Weapon(WeaponType weaponType, ItemRarity itemRarity) {
         super(weaponType.toString(), weaponType.getWeight(), itemRarity);
         this.weaponType = weaponType;
