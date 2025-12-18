@@ -252,7 +252,9 @@ public class InventoryController {
         refreshDisplay();
     }
 
-    //This is a inner Class for the table.
+    //This is a inner Class for the table. It works as a translator between out Item class and the TableView,
+    //this is needed since out data types from the Item class are enum.
+    //We use an inner class her because it is only used in InventoryController.
     public static class ItemTableData{
         private String type;
         private String rarity;
@@ -274,6 +276,7 @@ public class InventoryController {
             }
 
         }
+        //These getter are importen for us to be able to display the information in each table cell.
         public String getType() { return type; }
         public String getRarity() { return rarity; }
         public String getName() { return name; }
