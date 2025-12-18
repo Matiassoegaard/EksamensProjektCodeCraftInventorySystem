@@ -14,7 +14,7 @@ public class Inventory {
     private Player player;
     private static final double MAX_WEIGHT = 50.0;
 
-    //Contructor for Inventory class.
+    //Constructor for Inventory class.
     public Inventory(Player player) {
         this.items = new ArrayList<>();
         this.player = player;

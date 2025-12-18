@@ -4,12 +4,12 @@ public class Armor extends Item {
     private static final long serialVersionUID = 1L;
     private ArmorType armorType;
 
-    //contructor for armor class where rarity is preset.
+    //constructor for armor class where rarity is preset.
     public Armor(ArmorType armorType) {
         super(armorType.toString(), armorType.getWeight());
         this.armorType = armorType;
     }
-    //contructor for armor class where rarity is not preset.
+    //constructor for armor class where rarity is not preset.
     public Armor(ArmorType armorType, ItemRarity itemRarity) {
         super(armorType.toString(), armorType.getWeight(), itemRarity);
         this.armorType = armorType;

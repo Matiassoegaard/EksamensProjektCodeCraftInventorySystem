@@ -4,7 +4,7 @@ public class Weapon extends Item {
     private static final long serialVersionUID = 1L;
     private WeaponType weaponType;
 
-    //Constuctor with a preset rarity.
+    //Constructor with a preset rarity.
     public Weapon(WeaponType weaponType) {
         super(weaponType.toString(), weaponType.getWeight());
         this.weaponType = weaponType;

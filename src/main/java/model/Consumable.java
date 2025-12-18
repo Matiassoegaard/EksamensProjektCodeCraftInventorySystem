@@ -13,7 +13,7 @@ public class Consumable extends Item {
         this.quantity = quantity;
     }
 
-    //Contructor for consumables where rarity is not preset.
+    //Constructor for consumables where rarity is not preset.
     public Consumable(ConsumableType consumableType, int quantity, ItemRarity itemRarity) {
         super(consumableType.toString(), DEFAULT_WEIGHT_PER_UNIT, itemRarity);
         this.consumableType = consumableType;

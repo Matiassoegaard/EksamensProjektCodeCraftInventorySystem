@@ -92,7 +92,7 @@ public class InventoryController {
         contextMenu.show(addButton, javafx.geometry.Side.BOTTOM, 0, 0);
     }
 
-    //This methods makes a random type of weapon
+    //This method makes a random type of weapon
     private void addRandomWeapon() {
         try {
             WeaponType[] types = WeaponType.values();
@@ -193,7 +193,7 @@ public class InventoryController {
     }
 
     @FXML
-    //This method remove an selected Item, when you click on the 'Remove Selected Item' button.
+    //This method remove a selected Item, when you click on the 'Remove Selected Item' button.
     private void removeItem() {
         int selectedIndex = itemTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0){
@@ -252,7 +252,7 @@ public class InventoryController {
         refreshDisplay();
     }
 
-    //This is a inner Class for the table. It works as a translator between out Item class and the TableView,
+    //This is an inner Class for the table. It works as a translator between out Item class and the TableView,
     //this is needed since out data types from the Item class are enum.
     //We use an inner class her because it is only used in InventoryController.
     public static class ItemTableData{
@@ -262,7 +262,7 @@ public class InventoryController {
         private String quantity;
         private double weight;
 
-        //Contruktor for the inner class.
+        //Constructor for the inner class.
         public ItemTableData(Item item) {
             this.type = item.getType();
             this.rarity = item.getItemRarity().toString();
@@ -276,7 +276,7 @@ public class InventoryController {
             }
 
         }
-        //These getter are importen for us to be able to display the information in each table cell.
+        //These getters are important for us to be able to display the information in each table cell.
         public String getType() { return type; }
         public String getRarity() { return rarity; }
         public String getName() { return name; }
