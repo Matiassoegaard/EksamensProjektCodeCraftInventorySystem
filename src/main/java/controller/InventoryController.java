@@ -72,6 +72,8 @@ public class InventoryController {
     private Button sortByWeightButton;
     @FXML
     private Button levelUp;
+    @FXML
+    private Button deleteSaveFileButton;
 
     @FXML
     //This method shows the option you get when you click on 'Add Item' button.
@@ -216,6 +218,10 @@ public class InventoryController {
         FileManager.autoLoad(inventory);
         refreshDisplay();
     }
+    @FXML
+    private void deleteSaveFile(){
+        FileManager.deleteSaveFile();
+    }
 
     @FXML
     //This method levels the player up when the 'Level Up' button is pressed.
@@ -268,6 +274,11 @@ public class InventoryController {
             }
 
         }
+        public String getType() { return type; }
+        public String getRarity() { return rarity; }
+        public String getName() { return name; }
+        public double getWeight() { return weight; }
+        public String getQuantity() { return quantity; }
     }
 
 }
