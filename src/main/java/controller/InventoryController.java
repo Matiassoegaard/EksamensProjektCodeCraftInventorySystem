@@ -74,6 +74,7 @@ public class InventoryController {
     private Button levelUp;
 
     @FXML
+    //This method shows the option you get when you click on 'Add Item' button.
     private void showAddItemMenu() {
         ContextMenu contextMenu = new ContextMenu();
 
@@ -89,6 +90,7 @@ public class InventoryController {
         contextMenu.show(addButton, javafx.geometry.Side.BOTTOM, 0, 0);
     }
 
+    //This methods makes a random type of weapon
     private void addRandomWeapon() {
         try {
             WeaponType[] types = WeaponType.values();
@@ -104,6 +106,7 @@ public class InventoryController {
         }
     }
 
+    //This method makes a random type of armor
     private void addRandomArmor() {
         try {
             ArmorType[] types = ArmorType.values();
@@ -119,6 +122,7 @@ public class InventoryController {
         }
     }
 
+    //This method makes a random type of consumable
     private void addRandomConsumable() {
         try {
             ConsumableType[] types = ConsumableType.values();
@@ -138,6 +142,7 @@ public class InventoryController {
         }
     }
 
+    //This Method shows and error if you cant add an item due to weight or if the inventory is full
     private void showError(String message) {
         javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
         alert.setTitle("Error");
@@ -147,6 +152,7 @@ public class InventoryController {
     }
 
     @FXML
+    //This method initailizes the Table columns
     public void initialize() {
         typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
         rarityColumn.setCellValueFactory(new PropertyValueFactory<>("rarity"));
@@ -160,11 +166,13 @@ public class InventoryController {
 
     }
 
+    //Method for setting the inventory
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
         refreshDisplay();
     }
 
+    //This method updates the screen.
     public void refreshDisplay(){
         if (inventory == null) return;
 
@@ -183,6 +191,7 @@ public class InventoryController {
     }
 
     @FXML
+    //This method remove an selected Item, when you click on the 'Remove Selected Item' button.
     private void removeItem() {
         int selectedIndex = itemTable.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0){
@@ -196,17 +205,20 @@ public class InventoryController {
     }
 
     @FXML
+    //Method saves the inventory and player in a file.
     private void saveInventory(){
         FileManager.autoSave(inventory);
     }
 
     @FXML
+    //Method to load the saved inventory and player.
     private void loadInventory(){
         FileManager.autoLoad(inventory);
         refreshDisplay();
     }
 
     @FXML
+    //This method levels the player up when the 'Level Up' button is pressed.
     private void handleLevelUp(){
         if(inventory != null){
             inventory.getPlayer().levelUp();
@@ -214,23 +226,27 @@ public class InventoryController {
         }
     }
     @FXML
+    //This Method sort item by name when the associated button is pressed.
     private void sortItemByName(){
         inventory.sortByName(inventory.getItems());
         refreshDisplay();
     }
 
     @FXML
+    //This Method sort item by type when the associated button is pressed.
     private void sortItemByType(){
         inventory.sortByType(inventory.getItems());
         refreshDisplay();
     }
 
     @FXML
+    //This Method sort item by weight when the associated button is pressed.
     private void sortItemByWeight(){
         inventory.sortByWeight(inventory.getItems());
         refreshDisplay();
     }
 
+    //This is a inner Class for the table.
     public static class ItemTableData{
         private String type;
         private String rarity;
@@ -238,6 +254,7 @@ public class InventoryController {
         private String quantity;
         private double weight;
 
+        //Contruktor for the inner class.
         public ItemTableData(Item item) {
             this.type = item.getType();
             this.rarity = item.getItemRarity().toString();
@@ -251,11 +268,6 @@ public class InventoryController {
             }
 
         }
-        public String getType() { return type; }
-        public String getRarity() { return rarity; }
-        public String getName() { return name; }
-        public double getWeight() { return weight; }
-        public String getQuantity() { return quantity; }
     }
 
 }

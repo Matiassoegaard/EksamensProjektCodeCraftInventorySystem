@@ -9,6 +9,7 @@ public class Player implements Serializable{
     private static final int SLOTS_PER_LEVEL = 32;
     private static final int MAX_LEVEL = 6;
 
+
     public Player() {
         this.level = 1;
         updateMaxSlots();
@@ -22,6 +23,7 @@ public class Player implements Serializable{
         return maxInventorySlots;
     }
 
+    //Method to level up the player.
     public void levelUp() {
         if (level < MAX_LEVEL) {
             level++;
@@ -29,6 +31,7 @@ public class Player implements Serializable{
         }
     }
 
+    //This method updates max slots based on the players level.
     private void updateMaxSlots() {
         maxInventorySlots = level * SLOTS_PER_LEVEL;
     }

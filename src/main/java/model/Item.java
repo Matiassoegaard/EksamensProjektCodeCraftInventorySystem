@@ -8,12 +8,14 @@ public abstract class Item implements Serializable {
     protected double weight;
     protected ItemRarity itemRarity;
 
+    //Contructor for class Item, which the subclass also use in their construktor.
+    //this one does not have a preset rarity.
     public Item(String name, double weight, ItemRarity ItemRarity) {
         this.itemName = name;
         this.weight = weight;
         this.itemRarity = ItemRarity;
     }
-
+    //Construktor where rarity is preset, used in subclasses
     public Item(String name, double weight) {
         this(name, weight, ItemRarity.COMMON);
     }

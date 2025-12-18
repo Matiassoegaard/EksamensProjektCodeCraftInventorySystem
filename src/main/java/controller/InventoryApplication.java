@@ -35,6 +35,7 @@ public class InventoryApplication extends Application {
 
 
     }
+    //This method add some test items in then inventory.
     private void addTestItems(Inventory inventory) {
         try {
             // Add default weapons
@@ -51,6 +52,7 @@ public class InventoryApplication extends Application {
             inventory.addConsumable(ConsumableType.BEER, 5, ItemRarity.COMMON);
             inventory.addConsumable(ConsumableType.DRIED_MEAT, 10, ItemRarity.COMMON);
             inventory.addConsumable(ConsumableType.HEALTH_POTION, 3, ItemRarity.COMMON);
+
 
         } catch (InventoryFullException | WeightLimitException e) {
             System.err.println("Error adding test items: " + e.getMessage());

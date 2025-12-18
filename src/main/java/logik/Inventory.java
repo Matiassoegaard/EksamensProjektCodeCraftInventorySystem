@@ -14,6 +14,7 @@ public class Inventory {
     private Player player;
     private static final double MAX_WEIGHT = 50.0;
 
+    //Contruktor for Inventory class.
     public Inventory(Player player) {
         this.items = new ArrayList<>();
         this.player = player;
@@ -88,6 +89,7 @@ public class Inventory {
         items.add(item);
     }
 
+    //method for removing items
     public void removeItem(int index) throws InvalidItemException {
         if (index < 0 || index >= items.size()) {
             throw new InvalidItemException("Invalid item index: " + index);
@@ -152,11 +154,6 @@ public class Inventory {
             total += item.getWeight();
         }
         return total;
-    }
-
-    // checks if inventory is empty
-    public boolean isEmpty() {
-        return items.isEmpty();
     }
 
     // removes all items from inventory
